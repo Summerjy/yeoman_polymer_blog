@@ -1,0 +1,45 @@
+<link rel="import" href="polymer/polymer.html">
+
+<polymer-element name="polymer-post"  attributes="post selected">
+  <template>
+    <style>
+      /* styles for the custom element itself - lowest specificity */
+      :host { display: block; }
+      h2 {font-family:"Microsoft YaHei";}
+      /* 
+      style if an ancestor has the different class
+      :host(.different) { } 
+      */
+    </style>
+    <div>
+      <template if="{{post.gsx$slug.$t === selected}}">
+        <h2>
+          <a target="_blank" href="{{post.gsx$link.$t}}">
+            {{post.gsx$title.$t}}
+          </a>
+        </h2>
+        <p>作者：{{post.gsx$author.$t}}</p>
+        <p>{{post.gsx$content.$t}}<br /><a href="{{post.gsx$link.$t}}" target="_blank">&gt;&gt;阅读全文</a></p>
+        <p>发表于: {{post.gsx$date.$t}}</p>
+        <small>Keywords: {{post.gsx$keywords.$t}}</small>
+      </template>
+    </div>
+  </template>
+  <script>
+    Polymer('polymer-post', {
+      //applyAuthorStyles: true,
+      //resetStyleInheritance: true,
+
+      // element is fully prepared
+      ready: function(){ },
+      // instance of the element is created
+      created: function() { },
+      // instance was inserted into the document
+      enteredView: function() { },
+      // instance was removed from the document
+      leftView: function() { },
+      // attribute added, removed or updated
+      attributeChanged: function(attrName, oldVal, newVal) { }
+    });
+  </script>
+</polymer-element>

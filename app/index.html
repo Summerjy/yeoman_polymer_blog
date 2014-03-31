@@ -1,0 +1,42 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Polymer WebApp</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="styles/main.css">
+        <style>
+        body {            
+            background:#1a3265; 
+        }
+        a:link, a:visited{text-decoration:none;color:#007ac8;}
+        a:hover{text-decoration:underline;color:#007ac8}
+        .container {max-width:730px;margin:50px auto;}
+        .hero-unit {
+            padding:50px;background:#fff;border-radius:15px;font-family:'Microsoft YaHei';
+        }
+        </style>
+        <!-- Place your HTML imports here -->
+        <script src="elements/platform/platform.js"></script>
+        <link rel="import" href="elements/blog.html">
+    </head>
+    <body>
+        <div class="container">
+            <div class="hero-unit" style="width:90%;">
+                <polymer-blog></polymer-blog>
+            </div>
+        </div>   
+        <script>
+        document.addEventListener('WebComponentsReady', function() {
+            // Perform some behaviour
+        });
+        </script>          
+    </body>
+</html>

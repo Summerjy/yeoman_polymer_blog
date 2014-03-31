@@ -1,0 +1,45 @@
+<link rel="import" href="polymer/polymer.html">
+<link rel="import" href="polymer-jsonp/polymer-jsonp.html">
+<link rel="import" href="flatiron-director/flatiron-director.html">
+<link rel="import" href="post.html">
+<polymer-element name="polymer-blog"  attributes="">
+  <template>
+    <style>
+      :host { display: block; }
+      h1,h2 {font-family:"Microsoft YaHei";}
+    </style>
+    <h1><a href="/#">彬Go(Polymer Blog Demo)</a></h1>
+    <flatiron-director route="{{route}}" autoHash></flatiron-director>
+    <h2>文章列表</h2>
+
+    <!-- Table of contents -->
+    <ul>
+      <template repeat="{{post in posts.feed.entry}}">
+        <li><a href="#{{post.gsx$slug.$t}}">{{post.gsx$title.$t}}</a></li>
+      </template>
+    </ul>
+
+    <!-- Post content -->
+    <template repeat="{{post in posts.feed.entry}}">
+      <polymer-post post="{{post}}" selected="{{route}}"></polymer-post>      
+    </template>
+    <polymer-jsonp auto url="https://spreadsheets.google.com/feeds/list/0Ao_bIaw69jI1dHhmVkU1dnpfMHdOMXJjTDFIbnFxbmc/od6/public/values?alt=json-in-script&callback=" response="{{posts}}"></polymer-jsonp>
+  </template>
+  <script>
+    Polymer('polymer-blog', {
+      //applyAuthorStyles: true,
+      //resetStyleInheritance: true,
+
+      // element is fully prepared
+      ready: function(){ },
+      // instance of the element is created
+      created: function() { },
+      // instance was inserted into the document
+      enteredView: function() { },
+      // instance was removed from the document
+      leftView: function() { },
+      // attribute added, removed or updated
+      attributeChanged: function(attrName, oldVal, newVal) { }
+    });
+  </script>
+</polymer-element>
